@@ -9,7 +9,7 @@ let cssmin = require('gulp-cssmin');
 
 gulp.task('sass', function () {
 	return gulp.src('app/scss/**/*.scss')
-		.pipe(sass({ outputStyle: 'compressed' }))
+		.pipe(sass({ outputStyle: 'expanded' }))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(autoprefixer({
 			grid: true,
@@ -31,7 +31,7 @@ gulp.task('style', function () {
 		'node_modules/normalize.css/normalize.css',
 	])
 		.pipe(concat('libs.min.css'))
-		.pipe(cssmin())
+		// .pipe(cssmin())
 		.pipe(gulp.dest('app/css'))
 });
 gulp.task('html', function () {
