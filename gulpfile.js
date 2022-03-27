@@ -9,7 +9,7 @@ let cssmin = require('gulp-cssmin');
 
 gulp.task('sass', function () {
 	return gulp.src('app/scss/**/*.scss')
-		.pipe(sass({ outputStyle: 'expanded' }))
+		.pipe(sass({ outputStyle: 'compressed' }))
 		.pipe(rename({ suffix: '.min' }))
 		.pipe(autoprefixer({
 			grid: true,
@@ -31,7 +31,7 @@ gulp.task('style', function () {
 		'node_modules/normalize.css/normalize.css',
 	])
 		.pipe(concat('libs.min.css'))
-		// .pipe(cssmin())
+		.pipe(cssmin())
 		.pipe(gulp.dest('app/css'))
 });
 gulp.task('html', function () {
@@ -40,9 +40,9 @@ gulp.task('html', function () {
 });
 gulp.task('js', function () {
 	return gulp.src('app/js/*.js')
-		// .pipe(concat('main.min.js'))
-		// .pipe(uglify())
-		// .pipe(gulp.dest('app/js'))
+		.pipe(concat('main.min.js'))
+		.pipe(uglify())
+		.pipe(gulp.dest('app/js'))
 		.pipe(browserSync.reload({ stream: true }))
 });
 gulp.task('browser-sync', function () {

@@ -7,6 +7,7 @@ body{
    font-family: 'Poppins', sans-serif;
    position: relative;
    color: $darkGrey;
+   font-weight: 400;
    &.lock{
       overflow: hidden;
    }
@@ -22,13 +23,28 @@ body{
    flex-direction: column;
    min-height: 100vh;
    overflow: hidden;
-   // padding-top: rem(90);
 }
 @media (max-width: 767px) {
    .wrapper{
       padding-top: rem(50);
    }
 }
-.fullscreen{
-   min-height: 100vh;
+.btn{
+   padding: em(10,16) 0;
+   @include adaptiveValue('padding-left',20,0,1);
+   @include adaptiveValue('padding-right',20,0,1);
+   border-radius: rem(14);
+   transition: all .3s ease;
+   &:hover{
+      background-color: $black;
+      color: #fff;
+   }
+}
+.logo{
+   flex: 0 0;
+   @include adaptiveValue('flex-basis',220,180,1);
+   img{
+      display: block;
+      max-width: 100%;
+   }
 }
